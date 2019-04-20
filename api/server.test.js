@@ -1,6 +1,6 @@
-const server = require("./server.js");
+const { server } = require("./server.js");
+let { games } = require("./server.js");
 const request = require("supertest");
-const data = require("../data/dummyData.js");
 
 describe("The server API", () => {
   describe("GET /", () => {
@@ -12,6 +12,9 @@ describe("The server API", () => {
   });
 
   describe("POST /games", () => {
+    beforeEach(() => {
+      return (games = games.slice(0, 4));
+    });
     describe("should take in an object with title, genre, and releaseYear key/value pairs", () => {
       it("should return status code 201 if correctly shaped object is passed", async () => {
         const game = {
@@ -37,10 +40,10 @@ describe("The server API", () => {
           genre: "FPS",
           releaseYear: 1996
         };
-        await request(server)
+        const res = await request(server)
           .post("/games")
           .send(game);
-        expect(data[data.length - 1]).toEqual(game);
+        expect(res.body.game).toEqual(game);
       });
     });
   });
