@@ -26,9 +26,12 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
 
-describe() makes a block that is used to group tests that are related. it() designates a block that contains each individual test
+  - describe() makes a block that is used to group tests that are related. it() designates a block that contains each individual test
 
 1. What is the point of `Test Driven Development`? What do you think about this approach?
+
+  - TDD is a development method that automates most of your testing, giving you more time to worry about how to make your program better, with less time fiddling with everything manually any time code is refactored or features are added.  It especially helps when scaling up an application, and helps keep track of and eliminate code regressions.  I think it's a fantastic approach, and feel that it helps develop a disciplined framework to work within during the development process.
+
 1. Mention three types of automated tests.
 
 ## Project Set Up
