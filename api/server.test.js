@@ -1,8 +1,12 @@
-const { server } = require("./server.js");
+const { server, resetGames, emptyGames } = require("./server.js");
 let { games } = require("./server.js");
 const request = require("supertest");
 
 describe("The server API", () => {
+  beforeEach(() => {
+    return resetGames();
+  });
+
   describe("GET /", () => {
     it("should respond with a hello message", async () => {
       const res = await request(server).get("/");
@@ -12,9 +16,6 @@ describe("The server API", () => {
   });
 
   describe("POST /games", () => {
-    beforeEach(() => {
-      return (games = games.slice(0, 4));
-    });
     describe("should take in an object with title, genre, and releaseYear key/value pairs", () => {
       it("should return status code 201 if correctly shaped object is passed", async () => {
         const game = {
@@ -27,13 +28,6 @@ describe("The server API", () => {
           .send(game);
         expect(res.status).toBe(201);
       });
-      it("should return a 422 status code if an incorrectly shaped object is passed", async () => {
-        const game = { title: "Angry Birds" };
-        const res = await request(server)
-          .post("/games")
-          .send(game);
-        expect(res.status).toBe(422);
-      });
       it("should add an object to the data array if correctly shaped object is passed", async () => {
         const game = {
           title: "Redneck Rampage",
@@ -45,6 +39,14 @@ describe("The server API", () => {
           .send(game);
         expect(res.body.game).toEqual(game);
       });
+
+      it("should return a 422 status code if an incorrectly shaped object is passed", async () => {
+        const game = { title: "Angry Birds" };
+        const res = await request(server)
+          .post("/games")
+          .send(game);
+        expect(res.status).toBe(422);
+      });
     });
   });
   describe("GET /games", () => {
@@ -54,9 +56,10 @@ describe("The server API", () => {
     });
     it("should resond with an array of games", async () => {
       const res = await request(server).get("/games");
-      expect(res.body.games.type).toBe(Array);
+      expect(res.body.games).toEqual(games);
     });
     it("should respond with an empty array if no games are stored", async () => {
+      emptyGames();
       const res = await request(server).get("/games");
       expect(res.body.games).toEqual([]);
     });

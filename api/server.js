@@ -7,6 +7,19 @@ let games = [
   { title: "Final Fantasy VII", genre: "JRPG", releaseYear: 1997 }
 ];
 
+const resetGames = () => {
+  games = [
+    { title: "Pacman", genre: "Arcade", releaseYear: 1980 },
+    { title: "Rally-X", genre: "Arcade", releaseYear: 1980 },
+    { title: "Super Mario Kart", genre: "Racing", releaseYear: 1992 },
+    { title: "Final Fantasy VII", genre: "JRPG", releaseYear: 1997 }
+  ];
+};
+
+const emptyGames = () => {
+  games = [];
+};
+
 const server = express();
 server.use(express.json());
 
@@ -25,4 +38,8 @@ server.post("/games", async (req, res) => {
   }
 });
 
-module.exports = { server, games };
+server.get("/games", async (req, res) => {
+  res.status(200).json({ games });
+});
+
+module.exports = { server, games, resetGames, emptyGames };
