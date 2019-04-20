@@ -26,20 +26,17 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. In Jest, what are the differences between `describe()` and `it()` globals, and what are good uses for them?
 
-  - describe() makes a block that is used to group tests that are related. it() designates a block that contains each individual test
-
+- describe() makes a block that is used to group tests that are related. it() designates a block that contains each individual test
 
 2. What is the point of `Test Driven Development`? What do you think about this approach?
 
-  - TDD is a development method that automates most of your testing, giving you more time to worry about how to make your program better, with less time fiddling with everything manually any time code is refactored or features are added.  It especially helps when scaling up an application, and helps keep track of and eliminate code regressions.  I think it's a fantastic approach, and feel that it helps develop a disciplined framework to work within during the development process.
-
+- TDD is a development method that automates most of your testing, giving you more time to worry about how to make your program better, with less time fiddling with everything manually any time code is refactored or features are added. It especially helps when scaling up an application, and helps keep track of and eliminate code regressions. I think it's a fantastic approach, and feel that it helps develop a disciplined framework to work within during the development process.
 
 3. Mention three types of automated tests.
 
-  - unit testing
-  - integration testing
-  - end-to-end testing
-
+- unit testing
+- integration testing
+- end-to-end testing
 
 ## Project Set Up
 
@@ -61,7 +58,7 @@ Below is a product specification covering the requirements for your endpoints.
 
 ### POST /games
 
-- [ ] The `POST /games` endpoint should take in an object that looks like this
+- [x] The `POST /games` endpoint should take in an object that looks like this
 
   ```js
   {
@@ -71,8 +68,8 @@ Below is a product specification covering the requirements for your endpoints.
   }
   ```
 
-- [ ] In the route handler, validate that the required fields are included inside the body. If the information is incomplete, return a `422` status code.
-- [ ] Write tests to verify that the endpoint returns the correct HTTP status code when receiving correct and incorrect game data.
+- [x] In the route handler, validate that the required fields are included inside the body. If the information is incomplete, return a `422` status code.
+- [x] Write tests to verify that the endpoint returns the correct HTTP status code when receiving correct and incorrect game data.
 
 ### GET /games
 
