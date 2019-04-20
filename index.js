@@ -1,4 +1,4 @@
-const server = require("./server.js").games;
+const { server } = require("./server.js");
 
 const port = 2525;
 

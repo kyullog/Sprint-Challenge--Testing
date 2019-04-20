@@ -47,4 +47,18 @@ describe("The server API", () => {
       });
     });
   });
+  describe("GET /games", () => {
+    it("should respond with status code 200 on succesful retrieval", async () => {
+      const res = await request(server).get("/games");
+      expect(res.status).toBe(200);
+    });
+    it("should resond with an array of games", async () => {
+      const res = await request(server).get("/games");
+      expect(res.body.games.type).toBe(Array);
+    });
+    it("should respond with an empty array if no games are stored", async () => {
+      const res = await request(server).get("/games");
+      expect(res.body.games).toEqual([]);
+    });
+  });
 });
