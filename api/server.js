@@ -17,7 +17,7 @@ const resetGames = () => {
 };
 
 const emptyGames = () => {
-  games = [];
+  games = 0;
 };
 
 const server = express();
@@ -39,7 +39,11 @@ server.post("/games", async (req, res) => {
 });
 
 server.get("/games", async (req, res) => {
-  res.status(200).json({ games });
+  if (games) {
+    res.status(200).json({ games });
+  } else {
+    res.status(200).json({ games: [] });
+  }
 });
 
 module.exports = { server, games, resetGames, emptyGames };
