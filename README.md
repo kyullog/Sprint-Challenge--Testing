@@ -34,6 +34,10 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 1. Mention three types of automated tests.
 
+  - unit testing
+  - integration testing
+  - end-to-end testing 
+
 ## Project Set Up
 
 - [ ] Fork and clone this repository.
