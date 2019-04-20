@@ -28,22 +28,25 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
   - describe() makes a block that is used to group tests that are related. it() designates a block that contains each individual test
 
-1. What is the point of `Test Driven Development`? What do you think about this approach?
+
+2. What is the point of `Test Driven Development`? What do you think about this approach?
 
   - TDD is a development method that automates most of your testing, giving you more time to worry about how to make your program better, with less time fiddling with everything manually any time code is refactored or features are added.  It especially helps when scaling up an application, and helps keep track of and eliminate code regressions.  I think it's a fantastic approach, and feel that it helps develop a disciplined framework to work within during the development process.
 
-1. Mention three types of automated tests.
+
+3. Mention three types of automated tests.
 
   - unit testing
   - integration testing
-  - end-to-end testing 
+  - end-to-end testing
+
 
 ## Project Set Up
 
-- [ ] Fork and clone this repository.
-- [ ] **CD into the folder** where you downloaded the repository.
-- [ ] Run `yarn` or `npm i` to download all dependencies.
-- [ ] Type `yarn test` or `npm test` to run the tests. The `test` script is already configured.
+- [x] Fork and clone this repository.
+- [x] **CD into the folder** where you downloaded the repository.
+- [x] Run `yarn` or `npm i` to download all dependencies.
+- [x] Type `yarn test` or `npm test` to run the tests. The `test` script is already configured.
 
 ## Minimum Viable Product
 
